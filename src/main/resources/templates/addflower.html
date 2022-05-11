@@ -1,0 +1,47 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+
+<div layout:fragment="Site">
+    <div class="mx-auto">
+        <h1 class="text-center">WELCOME <span th:text="${currentUser.fullName}"></span></h1>
+        <form th:action="@{'/toaddflower'}" method="post">
+            <div class="row">
+                <div class="col-12">
+                    <label>BOUQUET NAME</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" name="f_name" required class="form-control" placeholder="Insert name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label>PRICE</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="number" name="f_price" required class="form-control" placeholder="Insert price">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label>COMPOSITION</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" name="f_composition" required class="form-control" placeholder="Insert composition">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-success mt-3">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</html>

@@ -1,0 +1,30 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+
+<div layout:fragment="Site">
+  <div class="row">
+    <h1 class="text-center">Welcome <span th:text="${currentUser.fullName}"></span></h1>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>PRICE</td>
+        <td>COMPOSITION</td>
+        <td>DETAILS</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="it: ${flowers}">
+        <td th:text="${it.id}"></td>
+        <td th:text="${it.name}"></td>
+        <td th:text="${it.price}"></td>
+        <td th:text="${it.composition}"></td>
+        <td><a class="btn btn-primary" th:href="@{'/details/'+${it.id}}">DETAILS</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</html>

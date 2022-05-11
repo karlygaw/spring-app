@@ -1,0 +1,59 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="Site" >
+  <div class="col-12 mx-auto">
+    <div class="row">
+      <form th:action="@{'/saveflower'}" method="post" th:if="${flower!=null}">
+        <div class="row">
+          <div class="col-12">
+            <input type="hidden" name="f_id" th:value="${flower.id}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>NAME</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <input type="text"class="form-control" name="f_name" th:value="${flower.name}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>PRICE</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <input type="number" class="form-control"  name="f_price" th:value="${flower.price}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>COMPOSITION</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <input type="text" class="form-control" name="f_composition" th:value="${flower.composition}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 mt-3">
+            <button class="btn btn-success ms-3">Save</button>
+          </div>
+        </div>
+      </form>
+      <form th:action="@{'/deleteflower'}" method="post" th:if="${flower!=null}">
+        <input type="hidden" name="f_id" th:value="${flower.id}">
+        <div class="row">
+          <div class="col-6 mt-3">
+            <button class="btn btn-danger ms-3">Delete</button>
+          </div>
+        </div>
+      </form>
+
+</div>
+</html>
